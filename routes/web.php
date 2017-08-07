@@ -37,3 +37,11 @@ Route::post('/outro', array(
   'as' => 'outro',
   'uses' => 'LogInController@outro'
 ));
+
+
+Route::resource('ficha', 'DashboardController');
+
+Route::get('/dashboard', array(
+  'as' => 'dashboard',
+  'uses' => 'DashboardController@dash'
+));

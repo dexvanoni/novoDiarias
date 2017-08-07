@@ -10,7 +10,7 @@
 
 @section('conteudo')
 <div class="container">
-  <table>
+  <table id="pesquisa">
         <thead>
           <tr>
             <th>OS</th>
