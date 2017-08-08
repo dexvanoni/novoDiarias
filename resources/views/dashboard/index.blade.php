@@ -30,7 +30,7 @@
               <p>Desenvolvido pela ATIC</p>
             </div>
             <div class="card-action">
-              <a style="margin-left: 15px" href="#" data-activates="slide-out" class="btn-floating button-collapse pulse"><i class="medium material-icons">add_circle</i></a>
+              <a style="margin-left: 15px" href="#" data-activates="slide-out" class="btn-floating tooltipped button-collapse pulse" data-tooltip="Menu"><i class="medium material-icons">add_circle</i></a>
             </div>
           </div>
         </div>

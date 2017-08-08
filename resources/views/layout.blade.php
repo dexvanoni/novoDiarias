@@ -60,10 +60,10 @@
     <i class="material-icons">menu</i>
   </a>
   <ul>
-    <li><a href="http://10.152.16.203/eti" class="btn-floating tooltipped red" data-position="top" data-delay="50" data-tooltip="Página ATIC-CG"><i class="material-icons">airplanemode_active</i></a></li>
-    <li><a href="http://10.152.16.203/glpi" class="btn-floating tooltipped yellow darken-1" data-position="top" data-delay="50" data-tooltip="HelpDesk TI"><i class="material-icons">library_books</i></a></li>
-    <li><a href="http://www.gapcg.intraer/gapcg/index.php/chefe" class="btn-floating tooltipped green" data-position="top" data-delay="50" data-tooltip="Conheça o Chefe do GAP-CG"><i class="material-icons">person_pin</i></a></li>
-    <li><a href="http://servicos.sti.intraer/portal/consumer_email" class="btn-floating tooltipped blue" data-position="top" data-delay="50" data-tooltip="Webmail"><i class="material-icons">email</i></a></li>
+    <li><a href="http://10.152.16.203/eti" target="_blank" class="btn-floating tooltipped red" data-position="top" data-delay="50" data-tooltip="Página ATIC-CG"><i class="material-icons">airplanemode_active</i></a></li>
+    <li><a href="http://10.152.16.203/glpi" target="_blank" class="btn-floating tooltipped yellow darken-1" data-position="top" data-delay="50" data-tooltip="HelpDesk TI"><i class="material-icons">library_books</i></a></li>
+    <li><a href="http://www.gapcg.intraer/gapcg/index.php/chefe" target="_blank" class="btn-floating tooltipped green" data-position="top" data-delay="50" data-tooltip="Conheça o Chefe do GAP-CG"><i class="material-icons">person_pin</i></a></li>
+    <li><a href="http://servicos.sti.intraer/portal/consumer_email" target="_blank" class="btn-floating tooltipped blue" data-position="top" data-delay="50" data-tooltip="Webmail"><i class="material-icons">email</i></a></li>
   </ul>
 </div>
 <script src="/bst/js/jquery-1.12.4.min.js"></script>

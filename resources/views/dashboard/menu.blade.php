@@ -27,11 +27,13 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">lock</i>Administração</div>
         <div class=" center collapsible-body">
-          <span>Ver todas as Ordens de Serviço</span><br>
         @if ($administrador)
+          <span>Ver todas as Ordens de Serviço</span><br>
           <a style="margin-bottom: 10px" href="{{ route('verTodasOs') }}" class="btn-floating waves-effect waves-light blue"><i class="material-icons">assignment</i></a>
+          <br>
+        @else
+          <h6>Você não possui permissões administrativas</h6>
         @endif
-        <br>
         </div>
       </li>
       <li>
