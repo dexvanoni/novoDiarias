@@ -11,20 +11,9 @@
 
 
 @section('conteudo')
-  @php
-      $d1 = Session::get('pescodigo');
-      $dono = Session::get('dono');
-    @endphp
-    <div class="container">
-      <div class="row">
-        <br>
-        <div class="col s7 push-s5">
-          <a href="{{ route('ficha.create') }}"class="btn-floating tooltipped waves-effect waves-light red" data-tooltip="Criar uma nova OS"><i class="material-icons">add</i></a>
-        </div>
-        <div class="col s5 pull-s7">
-          <a href="{{ route('dashboard') }}"class="btn-floating tooltipped waves-effect waves-light blue lighten-1" data-tooltip="Voltar para o Dashboard"><i class="material-icons">home</i></a>
-        </div>
-      </div>
+
+<div class="container">
+    @include('dashboard.botoes')
 
       <table id="pesquisa">
             <thead>
@@ -69,5 +58,6 @@
           </table>
     </div>
 
+@include('dashboard.menu')
 
 @endsection

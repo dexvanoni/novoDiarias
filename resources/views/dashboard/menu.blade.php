@@ -1,3 +1,8 @@
+@php
+    $d1 = Session::get('pescodigo');
+    $dono = Session::get('dono');
+    $administrador = Session::get('administrador');
+@endphp
 <ul id="slide-out" class="side-nav">
   <li ><div class="user-view">
     <div class="background">

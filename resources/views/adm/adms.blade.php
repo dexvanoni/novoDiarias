@@ -9,7 +9,9 @@
 @endsection
 
 @section('conteudo')
-<div class="container">
+  <div class="container">
+      @include('dashboard.botoes')
+
   <table id="pesquisa">
         <thead>
           <tr>
