@@ -75,6 +75,19 @@
         $('.tooltipped').tooltip({delay: 50});
          $(".button-collapse").sideNav();
          $('.collapsible').collapsible();
+         $('select').material_select();
+
+         if ( a == 'edit') {
+           $('#camposExtras').show();
+         } else {
+           $('#camposExtras').hide();
+         };
+         $("#alteracao_servico_s").click(function(){
+           $('#camposExtras').show();
+         });
+         $("#alteracao_servico_n").click(function(){
+           $('#camposExtras').hide();
+         });
 
       });
 

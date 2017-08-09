@@ -9,11 +9,11 @@ $val4 = Session::get('val4');
 <ul class="collapsible" data-collapsible="accordion">
   <li>
     <div class="collapsible-header"><i class="material-icons">person</i>Topo</div>
-    <div class="collapsible-body">
+    <div style="display: block; padding-bottom: 0px;"  class="collapsible-body">
 
-      <div class="row">
+      <div style="margin-bottom: 5px;" class="row">
         <div class="col s2">
-          <img src="/imagens/brasao.png" height="70em" width="70em" />
+          <img style="margin-left: 60px" src="/imagens/brasao.png" height="100em" width="100em" />
         </div>
         <div class="col s7">
           <center>
@@ -32,15 +32,16 @@ $val4 = Session::get('val4');
             </div>
             <div class="input-field col s2 push-s5">
               {!! Form::text('sc', null, ['id'=>'sc',  'size' => '4', 'width' => '3', 'class'=>'validate']) !!}
-              <label for="sc">SC</label>
+              <label for="sc"><sup>1</sup>SC</label>
             </div>
           </center>
         </div>
-        <div class="col s3">
-          <center>
-            <h5>Data: {{ date('d/m/Y') }}</h5>
-            Nº PCDP:{!! Form::text('pcdp', null, array('size' => '4')) !!}
-          </center>
+        <div class="center col s3">
+            <h6>Data: {{ date('d/m/Y') }}</h6>
+            <div class="center input-field col s6 push-s3">
+            {!! Form::text('pcdp', null, ['id'=>'pcdp', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+              <label for="sc">N° PCDP:</label>
+            </div>
         </div>
       </div>
 
@@ -58,167 +59,142 @@ $val4 = Session::get('val4');
       </div>
       <!-- primeira linha da tabela-->
       <div class="row">
-        <div title="Digite seu POSTO/GRAD e NOME COMPLETO" class="col-md-7">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">2*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'pnome', $value = $pgrad, $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('pnome',  null, array('class' => 'form-control input-sm'))!!}
-            @endif
+          <div class="input-field col s7">
+              @if ($tela == 'create')
+                {!! Form::input('text', 'pnome', $value = $pgrad, $attributes = ['id'=>'pcdp', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                <label for="pnome"><sup>2</sup>POSTO/GRAD e NOME COMPLETO*</label>
+              @elseif ($tela == 'edit')
+                {!! Form::text('pnome', null, ['id'=>'pnome', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                <label for="pnome"><sup>2</sup>POSTO/GRAD e NOME COMPLETO*</label>
+              @endif
           </div>
-        </div>
-        <div title="Digite seu SARAM" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">3*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'saram', $value = $saram, $attributes = ['class' => 'form-control input-sm']) !!}
-              {!! Form::input('hidden', 'pescodigo', $value = $saram) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('saram', null, array('class' => 'form-control input-sm' ))!!}
-            @endif
-          </div>
-        </div>
-        <div title="Digite seu CPF" class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">4*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'cpf', $value = $cpf, $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('cpf', null, array('class' => 'form-control input-sm' ))!!}
-            @endif
-          </div>
-        </div>
-      </div>
-      <p></p>
-      <!-- segunda linha da tabela-->
+          <div class="input-field col s2">
+                  @if ($tela == 'create')
+                    {!! Form::input('text', 'saram', $value = $saram, $attributes = ['id'=>'pcdp', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                    {!! Form::input('hidden', 'pescodigo', $value = $saram) !!}
+                    <label for="saram"><sup>3</sup>SARAM*</label>
+                  @elseif ($tela == 'edit')
+                    {!! Form::text('saram', null, ['id'=>'saram', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                    <label for="saram"><sup>3</sup>SARAM*</label>
+                  @endif
+              </div>
+              <div class="input-field col s3">
+                      @if ($tela == 'create')
+                        {!! Form::input('text', 'cpf', $value = $cpf, $attributes = ['id'=>'pcdp', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                        <label for="cpf"><sup>4</sup>CPF*</label>
+                      @elseif ($tela == 'edit')
+                        {!! Form::text('cpf', null, ['id'=>'cpf', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                        <label for="cpf"><sup>4</sup>CPF*</label>
+                      @endif
+                  </div>
+            </div>
+
       <div class="row">
-        <div title="Digite o número do seu banco" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">5</span>
-            {!! Form::text('banco', null, array('class' => 'form-control input-sm', 'placeholder'=>'BANCO:')) !!}
+            <div class="input-field col s2">
+                  {!! Form::text('banco', null, ['id'=>'banco', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                  <label for="banco"><sup>5</sup>BANCO</label>
+            </div>
+
+            <div class="input-field col s2">
+                  {!! Form::text('agencia', null, ['id'=>'agencia', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                  <label for="agencia"><sup>6</sup>AGÊNCIA</label>
+            </div>
+
+            <div class="input-field col s2">
+                  {!! Form::text('conta', null, ['id'=>'conta', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                  <label for="conta"><sup>7</sup>CONTA</label>
+            </div>
+
+            <div class="input-field col s4">
+                    @if ($tela == 'create')
+                      {!! Form::input('text', 'email', $value = $pemail, $attributes = ['id'=>'email', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                      <label for="email"><sup>8</sup>EMAIL*</label>
+                    @elseif ($tela == 'edit')
+                      {!! Form::text('email', null, ['id'=>'email', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                      <label for="email"><sup>8</sup>EMAIL*</label>
+                    @endif
+            </div>
+
+            <div class="input-field col s2">
+                    @if ($tela == 'create')
+                      {!! Form::input('text', 'datanascimento', $value = date('d/m/Y', strtotime($datadenascimento)), $attributes = ['id'=>'datanascimento', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                      <label for="datanascimento"><sup>9</sup>DATA DE NASCIMENTO*</label>
+                    @elseif ($tela == 'edit')
+                      {!! Form::text('datanascimento', null, ['id'=>'datanascimento', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                      <label for="datanascimento"><sup>9</sup>DATA DE NASCIMENTO*</label>
+                    @endif
+            </div>
           </div>
-        </div>
-        <div title="Digite o número de sua agência" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">6</span>
-            {!! Form::text('agencia', null, array('class' => 'form-control input-sm', 'placeholder'=>'AGÊNCIA:')) !!}
-          </div>
-        </div>
-        <div title="Digite o número de sua conta" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">7</span>
-            {!! Form::text('conta', null, array('class' => 'form-control input-sm', 'placeholder'=>'CONTA:')) !!}
-          </div>
-        </div>
-        <div title="Digite seu email" class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">8*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'email', $value = $pemail, $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('email', null, array('class' => 'form-control input-sm', 'placeholder'=>'EMAIL:')) !!}
-            @endif
-          </div>
-        </div>
-        <div title="Digite sua data de nascimento" class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">9*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'datanascimento', $value = date('d/m/Y', strtotime($datadenascimento)), $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('datanascimento', null, array('class' => 'form-control input-sm', 'placeholder'=>'DATA DE NASCIMENTO:')) !!}
-            @endif
-          </div>
-        </div>
-      </div>
-      <p></p>
       <!-- terceira linha da tabela-->
       <div class="row">
-        <div title="Campo automático!" class="col-md-5">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">10</span>
-            {!! Form::input('text', 'enquadramento', $value = 'Art. 18, do Dec. 4.307, de 19.jul.2002, e Portaria nº 1348/GC4, de 3 set 2015.', $attributes = ['class' => 'form-control input-sm', 'placeholder'=>'Art. 18, do Dec. 4.307, de 19.jul.2002, e Portaria nº 1348/GC4, de 3 set 2015.']) !!}
-          </div>
+        <div class="input-field col s6">
+              {!! Form::input('text', 'enquadramento', $value = 'Art. 18, do Dec. 4.307, de 19.jul.2002, e Portaria nº 1348/GC4, de 3 set 2015.', $attributes = ['id'=>'enquadramento', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+              <label for="enquadramento"><sup>10</sup>ENQUADRAMENTO</label>
         </div>
-        <div title="Digite sua Identidade" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">11*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'identidade', $value = $identidade, $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('identidade', null, array('class' => 'form-control input-sm', 'placeholder'=>'IDENTIDADE:')) !!}
-            @endif
 
-          </div>
+        <div class="input-field col s2">
+                @if ($tela == 'create')
+                  {!! Form::input('text', 'identidade', $value = $identidade, $attributes = ['id'=>'datanascimento', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                  <label for="identidade"><sup>11</sup>IDENTIDADE*</label>
+                @elseif ($tela == 'edit')
+                  {!! Form::text('identidade', null, ['id'=>'identidade', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                  <label for="identidade"><sup>11</sup>IDENTIDADE*</label>
+                @endif
         </div>
-        <div title="Escolha sua OM" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">12</span>
-            {!! Form::select('om', ['placeholder'=>'OM:', 'GAP-CG'=>'GAP-CG', 'NuALA5'=> 'NuALA5'], null, ['class' => 'form-control input-sm']) !!}
-          </div>
-        </div>
-        <div title="Digite seu telefone para contato" class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">13*</span>
-            @if ($tela == 'create')
-              {!! Form::input('text', 'telefone', $value = $ramal, $attributes = ['class' => 'form-control input-sm']) !!}
-            @elseif ($tela == 'edit')
-              {!! Form::text('telefone', null, array('class' => 'form-control input-sm', 'placeholder'=>'TELEFONE:')) !!}
-            @endif
 
+          <div class="input-field col s2">
+            {{ Form::select('om', ['GAP-CG'=>'GAP-CG', 'NuALA5'=> 'NuALA5'], null, ['placeholder'=>'Selecione']) }}
+            <label for="om"><sup>12</sup>OM</label>
           </div>
-        </div>
+
+          <div class="input-field col s2">
+                  @if ($tela == 'create')
+                    {!! Form::input('text', 'telefone', $value = $ramal, $attributes = ['id'=>'telefone', 'size' => '20', 'width' => '20', 'class'=>'validate']) !!}
+                    <label for="telefone"><sup>13</sup>TELEFONE*</label>
+                  @elseif ($tela == 'edit')
+                    {!! Form::text('telefone', null, ['id'=>'telefone', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+                    <label for="telefone"><sup>13</sup>TELEFONE*</label>
+                  @endif
+          </div>
       </div>
-
-    </div>
   </li>
+
   <li>
     <div class="collapsible-header"><i class="material-icons">build</i>Serviço</div>
     <div class="collapsible-body">
 
       <div class="row">
-        <div title="Informe o serviço que será realizado" class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">14</span>
-            {!! Form::text('servico', null, array('maxlength'=>'255', 'class' => 'form-control input-sm', 'placeholder'=>'SERVIÇO A REALIZAR:')) !!}
-          </div>
+        <div class="input-field col s12">
+          {!! Form::text('servico', null, ['id'=>'servico', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+          <label for="servico"><sup>14</sup>SERVIÇO</label>
         </div>
       </div>
-      <!-- quinta linha da tabela-->
+
       <div class="row">
-        <div title="Informe os documentos que originam a missão" class="col-md-6">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">15</span>
-            {!! Form::text('documentos', null, array('maxlength'=>'80', 'class' => 'form-control input-sm', 'placeholder'=>'DOCUMENTOS QUE ORIGINARAM A MISSÃO:')) !!}
-          </div>
+        <div class="input-field col s5">
+          {!! Form::text('documentos', null, ['id'=>'documentos', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+          <label for="documentos"><sup>15</sup>DOCUMENTOS QUE ORIGINARAM A MISSÃO</label>
         </div>
-        <div title="Informe o NE" class="col-md-2">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">16</span>
-            {!! Form::text('ne', null, array('class' => 'form-control input-sm', 'placeholder'=>'NE:')) !!}
-          </div>
+
+        <div class="input-field col s1">
+          {!! Form::text('ne', null, ['id'=>'ne', 'size' => '6', 'width' => '10', 'class'=>'validate']) !!}
+          <label for="ne"><sup>16</sup>NE</label>
         </div>
-        <div title="Informe o preito da missão" class="col-md-4">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">17</span>
-            {!! Form::select('em_proveito', ['placeholder'=>'MISSÃO EM PROVEITO:', 'UNIÃO'=>'UNIÃO', 'PRÓPRIO'=> 'PRÓPRIO'], null, ['class' => 'form-control input-sm']) !!}
-          </div>
+
+        <div class="input-field col s3">
+          {{ Form::select('em_proveito', ['UNIÃO'=>'UNIÃO', 'PRÓPRIO'=> 'PRÓPRIO'], null, ['placeholder'=>'Selecione']) }}
+          <label for="em_proveito"><sup>17</sup>MISSÃO EM PROVEITO</label>
         </div>
-      </div>
-      <!-- sexta linha da tabela-->
-      <div class="row">
-        <div title="Informe a modalidade de custeio" class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">18</span>
-            {!! Form::select('custeio', ['placeholder'=>'CUSTEIO:', 'SEM CUSTO'=>'SEM CUSTO', 'DIÁRIA'=> 'DIÁRIA', 'COMISSIONAMENTO'=>'COMISSIONAMENTO'], null, ['class' => 'form-control input-sm']) !!}
-          </div>
+
+        <div class="input-field col s3">
+          {{ Form::select('custeio', ['SEM CUSTO'=>'SEM CUSTO', 'DIÁRIA'=> 'DIÁRIA', 'COMISSIONAMENTO'=>'COMISSIONAMENTO'], null, ['placeholder'=>'Selecione']) }}
+          <label for="custeio"><sup>18</sup>CUSTEIO</label>
         </div>
       </div>
 
     </div>
   </li>
-
+  <!--################################# EDITAR DEPOIS OS TRECHOS##############################################-->
   <li>
     <div class="collapsible-header"><i class="material-icons">flight_takeoff</i>Trechos</div>
     <div class="collapsible-body">
@@ -295,41 +271,34 @@ $val4 = Session::get('val4');
 
     </div>
   </li>
+  <!--################################# EDITAR DEPOIS OS TRECHOS##############################################-->
   <li>
     <div class="collapsible-header"><i class="material-icons">help</i>Justificativas</div>
     <div class="collapsible-body">
 
       <div class="row">
-        <div title="JUSTIFICATIVA DA MISSÃO EM FINAL DE SEMANA / FERIADO: (§ 2º, Art. 5º, do Dec. 5.992/2006)" class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">26</span>
-            {!! Form::textarea('fim_semana', null, array('rows'=>'3', 'class' => 'form-control', 'placeholder'=>'JUSTIFICATIVA DA MISSÃO EM FINAL DE SEMANA / FERIADO: (§ 2º, Art. 5º, do Dec. 5.992/2006)')) !!}
-          </div>
-        </div>
-      </div>
-      <p></p>
-      <!-- decima linha da tabela-->
-      <div class="row">
-        <div title="JUSTIFICATIVA DA CONVENIÊNCIA DO SERVIÇO: (Inciso 2.1.3, da ICA 177-42)" class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">27</span>
-            {!! Form::textarea('conveniencia_servico', null, array('rows'=>'3', 'class' => 'form-control', 'placeholder'=>'JUSTIFICATIVA DA CONVENIÊNCIA DO SERVIÇO: (Inciso 2.1.3, da ICA 177-42)')) !!}
-          </div>
-        </div>
-      </div>
-      <p></p>
-      <!-- decima primeira linha da tabela-->
-      <div class="row">
-        <div title="JUSTIFICATIVA: (Art 1º, da Portaria 1348/GC4/2015)" class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">28</span>
-            {!! Form::textarea('justificativa', null, array('rows'=>'3', 'class' => 'form-control', 'placeholder'=>'JUSTIFICATIVA: (Art 1º, da Portaria 1348/GC4/2015)')) !!}
-          </div>
+        <div class="input-field col s12">
+          {!! Form::textarea('fim_semana', null, ['id'=>'fim_semana', 'class'=>'materialize-textarea']) !!}
+          <label for="fim_semana"><sup>26</sup>JUSTIFICATIVA DA MISSÃO EM FINAL DE SEMANA / FERIADO: (§ 2º, Art. 5º, do Dec. 5.992/2006)</label>
         </div>
       </div>
 
+      <div class="row">
+        <div class="input-field col s12">
+          {!! Form::textarea('conveniencia_servico', null, ['id'=>'conveniencia_servico', 'class'=>'materialize-textarea']) !!}
+          <label for="conveniencia_servico"><sup>27</sup>JUSTIFICATIVA DA CONVENIÊNCIA DO SERVIÇO: (Inciso 2.1.3, da ICA 177-42)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          {!! Form::textarea('justificativa', null, ['id'=>'justificativa', 'class'=>'materialize-textarea']) !!}
+          <label for="justificativa"><sup>28</sup>JUSTIFICATIVA: (Art 1º, da Portaria 1348/GC4/2015)</label>
+        </div>
+      </div>
     </div>
   </li>
+
   <li>
     <div class="collapsible-header"><i class="material-icons">monetization_on</i>FACD</div>
     <div class="collapsible-body">
@@ -337,169 +306,34 @@ $val4 = Session::get('val4');
       <!-- ##########################  SEGUNDA SEÇÃO DA FICHA #############################################-->
       <!-- na tela de criação não aparece a FACD e nem HOMOLOGAÇÃO e na tela de edição não aparece a HOMOLOGAÇÃO. A HOMOLOGAÇÃO só aparece para o administrador -->
       <!-- decima TERCEIRA linha da tabela-->
-      <div class="facd">
         <div class="row">
-          <h5><b>II - <sup>31</sup>FICHA DE APRESENTAÇÃO DE CONCESSÃO DE DIÁRIAS (FACD):</b></h5>
+          <h6>II - <sup>31</sup>FICHA DE APRESENTAÇÃO DE CONCESSÃO DE DIÁRIAS (FACD):</h6>
         </div>
-        <p></p>
+
         <div class="row">
-          <div style="border: 1px solid #D3D3D3; border-radius:3px" class="col-md-12">
-            <div class="col-md-10">
-              <label style="font-size: 10.5px">OCORRERAM, POR MOTIVO DE FORÇA MAIOR, ALTERAÇÕES NO LOCAL DE REALIZAÇÃO DO SERVIÇO E/OU NAS DATAS DE INÍCIO/RETORNO AUTORIZADOS INICIALMENTE?</label>
-            </div>
-            <div style="font-size: 10px" class="col-md-2">
-              <center>
-                {!! Form::radio('alteracao_servico', 'SIM', null, ['id'=>'alteracao_servico_s']) !!}SIM&nbsp&nbsp&nbsp
-                {!! Form::radio('alteracao_servico', 'NÃO', null, ['id'=>'alteracao_servico_n']) !!}NÃO
-              </center>
-            </div>
+          <div class="col s12">
+            <h6>OCORRERAM, POR MOTIVO DE FORÇA MAIOR, ALTERAÇÕES NO LOCAL DE REALIZAÇÃO DO SERVIÇO E/OU NAS DATAS DE INÍCIO/RETORNO AUTORIZADOS INICIALMENTE?</h6>
           </div>
+          <div class="col s12">
+            {!! Form::radio('alteracao_servico', 'SIM', null, ['id'=>'alteracao_servico_s']) !!}
+            <label for="alteracao_servico_s">Sim</label>
+
+            {!! Form::radio('alteracao_servico', 'NÃO', null, ['id'=>'alteracao_servico_n']) !!}
+            <label for="alteracao_servico_n">Não</label>
+          </div>
+
           <!-- DIV abaixo só aparece se o radio (de cima) SIM for selecionado (jquery escrita no template) -->
-          <div class="col-md-12" id="camposExtras">
-            {!! Form::textarea('justificativa_alteracao', null, array('rows'=>'3', 'class' => 'form-control', 'placeholder'=>'JUSTIFICATIVA:')) !!}
-            <h5>Campo Grande, {!! Form::text('dia', null, array('size'=>'3')) !!} &nbsp de &nbsp {!! Form::text('mes', null,array('size' => '15')) !!}&nbsp de 2017. Responsável pelo serviço: {!! Form::text('responsavel', null,array('size' => '20')) !!} </h5>
+          <div class="input-field col s12" id="camposExtras">
+            {!! Form::textarea('justificativa_alteracao', null, ['id'=>'justificativa_alteracao', 'class'=>'materialize-textarea']) !!}
+            <label for="justificativa_alteracao"><sup>28</sup>JUSTIFICATIVA</label>
+            <h6>Campo Grande, {!! Form::text('dia', null, ['size'=>'3']) !!} &nbsp de &nbsp {!! Form::text('mes', null,array('size' => '15')) !!}&nbsp de 2017. Responsável pelo serviço: {!! Form::text('responsavel', null,array('size' => '20')) !!} </h6>
           </div>
+
         </div>
-        <hr>
-        <div style="border: 1px solid #D3D3D3; border-radius:3px" class="row">
-          <center><h5><b>CÔMPUTO DE DIÁRIAS E ACRÉSCIMOS - POR LOCALIDADE</b></h5></center>
-        </div>
-        <!-- IDENTIFICAÇÃO DOS CAMPOS DA TABELA-->
-        <div style="border: 1px solid #D3D3D3; border-radius:3px" class="row">
-          <div class="col-md-2">
-            <center><b>Valor</b></center>
-          </div>
-          <div class="col-md-6">
-            <center><b>Cidades</b></center>
-          </div>
-          <div class="col-md-2">
-            <center><b>Quantidade</b></center>
-          </div>
-          <div class="col-md-2">
-            <center><b>Subtotal</b></center>
-          </div>
-        </div>
-        <div style="border: 1px solid #D3D3D3; border-radius:3px"  class="row">
-          <!-- PRIMEIRA LINHA DA TABELA-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('val_br_am_rj', null, array('size'=>'6', 'id'=>'a')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Brasília, Manaus, Rio de Janeiro</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_br_am_rj', null, array('size'=>'6', 'id'=>'a1')) !!} <label style="color: red; font-size: 10px" id="l1">+1/2</label> </center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado1', null, array('size'=>'6', 'id'=>'resultado1')) !!}</center>
-            </div>
-          </div>
-          <!-- SEGUNDA LINHA DA TABELA-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('val_bh_fl_pa_rc_sl_sp', null, array('size'=>'6', 'id'=>'b')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Belo Horizonte, Fortaleza, Porto Alegre, Recife, Salvador e São Paulo</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_bh_fl_pa_rc_sl_sp', null, array('size'=>'6', 'id'=>'b1')) !!}<label style="color: red; font-size: 10px" id="l2">+1/2</label></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado2', null, array('size'=>'6', 'id'=>'resultado2')) !!}</center>
-            </div>
-          </div>
-          <!-- TERCEIRA LINHA DA TABELA-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('val_capitais', null, array('size'=>'6', 'id'=>'c')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Demais capitais de Estado</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_capitais', null, array('size'=>'6', 'id'=>'c1')) !!}<label style="color: red; font-size: 10px" id="l3">+1/2</label></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado3', null, array('size'=>'6', 'id'=>'resultado3')) !!}</center>
-            </div>
-          </div>
-          <!-- QUARTA LINHA DA TABELA-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('val_cidades', null, array('size'=>'6', 'id'=>'d')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Demais Cidades</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_cidades', null, array('size'=>'6', 'id'=>'d1')) !!}<label style="color: red; font-size: 10px" id="l4">+ 1/2</label></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado4', null, array('size'=>'6', 'id'=>'resultado4')) !!}</center>
-            </div>
-          </div>
-          <!-- LINHA DE ACRÉSCIMOS-->
-          <hr>
-          <div class="row">
-            <div class="col-md-8">
-              <center><h6><b>Acréscimos de Deslocamento</b></h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::input('text', 'qt_acrescimo', null, $attributes = ['id'=>'qt_acrescimo', 'size'=>'6']) !!} </center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::input('text', 'val_ac', null, $attributes = ['id'=>'val_ac','size'=>'6']) !!}</center>
-            </div>
-          </div>
-          <!-- LINHA DE DESCONTOS-->
-          <hr>
-          <div class="row">
-            <div class="col-md-2">
-              <center><b>Valor Diário</b></center>
-            </div>
-            <div class="col-md-6">
-              <center><b>Cômputo de Descontos</b></center>
-            </div>
-            <div class="col-md-2">
-              <center><b>Dias Úteis</b></center>
-            </div>
-            <div class="col-md-2">
-              <center><b>Subtotal</b></center>
-            </div>
-          </div>
-          <!-- PRIMEIRA LINHA DESCONTO-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('desc_a', null, array('size'=>'6', 'id'=>'desc_a')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Auxílio Alimentação - Valor líquido mensal: R$ 0</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_dias_a', null, array('size'=>'6', 'id'=>'qt_dias_a')) !!}</center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado_dias_a', null, array('size'=>'6', 'id'=>'resultado_dias_a')) !!}</center>
-            </div>
-          </div>
-          <!-- SEGUNDA LINHA DESCONTO-->
-          <div class="row">
-            <div class="col-md-2">
-              <center>{!! Form::text('desc_b', null, array('size'=>'6', 'id'=>'desc_b')) !!}</center>
-            </div>
-            <div class="col-md-6">
-              <center><h6>Auxílio Transporte - Valor líquido mensal: R$ 0</h6></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('qt_dias_b', null, array('size'=>'6', 'id'=>'qt_dias_b')) !!}</center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado_dias_b', null, array('size'=>'6', 'id'=>'resultado_dias_b')) !!}</center>
-            </div>
-          </div>
-          <hr>
+
+
+
+            <hr>
           <h4>Número de diárias completas computadas: {!! Form::text('qtn_dc', null, array('size'=>'6', 'id'=>'qtn_dc')) !!}</h4>
           <h4>Número de 1/2 diárias computadas: {!! Form::text('qtn_md', null, array('size'=>'6', 'id'=>'qtn_md')) !!}</h4>
           <hr>
