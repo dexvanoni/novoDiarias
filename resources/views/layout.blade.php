@@ -20,6 +20,7 @@
 
   </head>
   <body>
+    <?php $tela = ''; ?>
     <nav>
        <div class="nav-wrapper">
          <a style="margin-left: 2em" href="/" class="brand-logo">@yield('topo')</a>
@@ -71,12 +72,13 @@
   <script src="/materialize/js/materialize.min.js"></script>
    <script src="/bst/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function(){
+      $(document).ready(function(){
         $('.tooltipped').tooltip({delay: 50});
          $(".button-collapse").sideNav();
          $('.collapsible').collapsible();
          $('select').material_select();
 
+         var a = "<?php echo $tela; ?>";
          if ( a == 'edit') {
            $('#camposExtras').show();
          } else {

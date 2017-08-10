@@ -137,3 +137,13 @@
       <center>{!! Form::text('resultado_dias_b', null, array('size'=>'6', 'id'=>'resultado_dias_b')) !!}</center>
     </div>
   </div>
+  <div class="col-md-4">
+    <center><p> ________________________________________ </p></center>
+    <center><p>ORDENADOR DE DESPESAS</p></center>
+  </div>
+  <div class="col-md-2">
+    <center><b>TOTAL</b></center>
+  </div>
+  <div class="col-md-2">
+    <center>{!! Form::text('resultado_total', null, array('size'=>'6', 'id'=>'resultado_total')) !!}</center>
+  </div>

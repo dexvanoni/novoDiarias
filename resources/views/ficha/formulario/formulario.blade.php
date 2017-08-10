@@ -321,74 +321,134 @@ $val4 = Session::get('val4');
             {!! Form::radio('alteracao_servico', 'NÃO', null, ['id'=>'alteracao_servico_n']) !!}
             <label for="alteracao_servico_n">Não</label>
           </div>
-
+          </div>
           <!-- DIV abaixo só aparece se o radio (de cima) SIM for selecionado (jquery escrita no template) -->
-          <div class="input-field col s12" id="camposExtras">
-            {!! Form::textarea('justificativa_alteracao', null, ['id'=>'justificativa_alteracao', 'class'=>'materialize-textarea']) !!}
-            <label for="justificativa_alteracao"><sup>28</sup>JUSTIFICATIVA</label>
-            <h6>Campo Grande, {!! Form::text('dia', null, ['size'=>'3']) !!} &nbsp de &nbsp {!! Form::text('mes', null,array('size' => '15')) !!}&nbsp de 2017. Responsável pelo serviço: {!! Form::text('responsavel', null,array('size' => '20')) !!} </h6>
+          <div class="row" style="border: 1px solid #42a5f5">
+            <div class="input-field col s12" id="camposExtras" >
+            <div class="col s12">
+              {!! Form::textarea('justificativa_alteracao', null, ['id'=>'justificativa_alteracao', 'class'=>'materialize-textarea']) !!}
+              <label for="justificativa_alteracao"><sup>28</sup>JUSTIFICATIVA</label>
+            </div>
+              <div class="col s2" style="padding-top: 7px; margin-right: -69px;">
+                <h6>Campo Grande,</h6>
+              </div>
+              <div class="col s1">
+                  {!! Form::text('dia', null, ['size'=>'3']) !!}
+              </div>
+              <div class="col s1" style="padding-top: 7px; margin-right: -63px;">
+                <h6> de </h6>
+              </div>
+              <div class="col s3">
+                {!! Form::text('mes', null,array('size' => '15')) !!}
+              </div>
+              <div class="col s3" style="padding-top: 7px; margin-right: -28px;">
+                <h6>de 2017. Responsável pelo serviço: </h6>
+              </div>
+              <div class="col s3">
+                {!! Form::text('responsavel', null,array('size' => '20')) !!}
+              </div>
+            </div>
           </div>
+            <div class="row">
+              <div class="col s4" style="padding-top: 7px; margin-right: -75px;">
+                <h6>Número de diárias completas computadas</h6>
+              </div>
+              <div class="col s2">
+                {!! Form::text('qtn_dc', null, array('size'=>'6', 'id'=>'qtn_dc')) !!}
+              </div>
+              <div class="col s3" style="padding-top: 7px; margin-right: -32px;">
+                <h6>Número de 1/2 diárias computadas</h6>
+              </div>
+              <div class="col s3">
+                {!! Form::text('qtn_md', null, array('size'=>'6', 'id'=>'qtn_md')) !!}
+              </div>
+            </div>
 
-        </div>
-
-
-
-            <hr>
-          <h4>Número de diárias completas computadas: {!! Form::text('qtn_dc', null, array('size'=>'6', 'id'=>'qtn_dc')) !!}</h4>
-          <h4>Número de 1/2 diárias computadas: {!! Form::text('qtn_md', null, array('size'=>'6', 'id'=>'qtn_md')) !!}</h4>
-          <hr>
           <div class="row">
-            <div class="col-md-4">
-              &nbsp&nbspPublique-se: <br> &nbsp&nbspCampo Grande/MS, {{ date('d/m/Y') }}
-            </div>
-            <div class="col-md-4">
-              <center><p> ________________________________________ </p></center>
-              <center><p>ORDENADOR DE DESPESAS</p></center>
-            </div>
-            <div class="col-md-2">
-              <center><b>TOTAL</b></center>
-            </div>
-            <div class="col-md-2">
-              <center>{!! Form::text('resultado_total', null, array('size'=>'6', 'id'=>'resultado_total')) !!}</center>
-            </div>
+              <h6>Publique-se</h6>
           </div>
-        </div>
-      </div>
 
-    </div>
+          <div class="row">
+              <h6>Campo Grande/MS, {{ date('d/m/Y') }}</h6>
+          </div>
+
+        </div>
   </li>
 
   <li>
     <div class="collapsible-header"><i class="material-icons">gavel</i>Homologação</div>
     <div class="collapsible-body">
-
       <div class="homologa">
-        <div class="col-md-12">
           <div class="row">
-            <h5><b>III - <sup>32</sup>HOMOLOGAÇÃO:</b></h5>
+            <h6><sup>32</sup>HOMOLOGAÇÃO</h6>
           </div>
-        </div>
-        <br>
+          <div class="row">
+            <div class="col s12">
+              <p>a) Homologo a concessão de diárias</p>
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="col s1">
+            <p>b) 1.</p>
+          </div>
+          <div class="col s7" style="padding-top: 14px;">
+            {!! Form::checkbox('conforme_previsto', 'Conforme previsto na presente Ordem de Serviço', false, array('id'=>'conforme_previsto')) !!}
+            <label for="conforme_previsto" style="margin-left: -50px">Conforme previsto na presente Ordem de Serviço</label>
+          </div>
+          </div>
+
+          <div class="row">
+          <div class="col s1" style="padding-left: 1.75rem;">
+            <p>2.</p>
+          </div>
+          <div class="col s7" style="padding-top: 14px;">
+            {!! Form::checkbox('conforme_forca_maior', 'Conforme a seguir, por motivo de força maior', false, array('id'=>'conforme_forca_maior')) !!}
+            <label for="conforme_forca_maior" style="margin-left: -50px">Conforme a seguir, por motivo de força maior</label>
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="col s3">
+              {!! Form::text('qt_meia_diaria', null, array('size'=>'3', 'id'=>'qt_meia_diaria')) !!}
+              <label for="qt_meia_diaria">1/2 diária - Qtd</label>
+              <div class="col s3">
+                {!! Form::text('localidade_meia_diaria', null, array('size'=>'25')) !!}
+                <label for="localidade_meia_diaria">referente a localidade de</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s3">
+              {!! Form::text('qt_diaria_completa', null, array('size'=>'3', 'id'=>'qt_diaria_completa')) !!}
+              <label for="qt_meia_diaria">Diária Completa</label>
+              <div class="col s3">
+                {!! Form::text('localidade_diaria_completa', null, array('size'=>'45')) !!}
+                <label for="localidade_meia_diaria">referente a pernoite(s) em</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s3">
+              {!! Form::text('num_total_acrescimos', null, array('size'=>'3', 'id'=>'num_total_acrescimos')) !!}
+              <label for="qt_meia_diaria">Número total de acréscimos</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              {!! Form::radio('restituicao', 'SIM') !!}
+              <label for="restituicao">Sim</label>
+
+              {!! Form::radio('restituicao', 'NÃO') !!}
+              <label for="restituicao">Não</label>
+            </div>
+          </div>
+
+
         <div class="col-md-offset-2">
-          <div class="row">
-            <br>
-            <p>a) Homologo a concessão de diárias</p>
-          </div>
-          <div class="row">
-            <p>b) 1. {!! Form::checkbox('conforme_previsto', null, array('class' => 'form-control input-sm', 'value'=>'Conforme previsto na presente Ordem de Serviço')) !!} Conforme previsto na presente Ordem de Serviço</p>
-          </div>
-          <div class="row">
-            <p>2. {!! Form::checkbox('conforme_forca_maior', null, array('class' => 'form-control input-sm', 'value'=>'Conforme a seguir, por motivo de força maior')) !!} Conforme a seguir, por motivo de força maior.</p>
-          </div>
-          <div class="row">
-            <p>1/2 diária - Qtd: {!! Form::text('qt_meia_diaria', null, array('size'=>'3', 'id'=>'qt_meia_diaria')) !!} referente a localidade de {!! Form::text('localidade_meia_diaria', null, array('size'=>'25')) !!}</p>
-          </div>
-          <div class="row">
-            <p>Diária Completa - {!! Form::text('qt_diaria_completa', null, array('size'=>'3', 'id'=>'qt_diaria_completa')) !!} referente a pernoite(s) em {!! Form::text('localidade_diaria_completa', null, array('size'=>'45')) !!}</p>
-          </div>
-          <div class="row">
-            <p>Número total de acréscimos: {!! Form::text('num_total_acrescimos', null, array('size'=>'3', 'id'=>'num_total_acrescimos')) !!}</p>
-          </div>
           <div class="row">
             3. Restituição a efetuar:&nbsp&nbsp&nbsp&nbsp
             <div class="radio-inline">
@@ -405,8 +465,9 @@ $val4 = Session::get('val4');
         </div>
       </div>
 
-    </div>
+</div>
   </li>
+
 </ul>
 
 @if ($tela == 'show')
